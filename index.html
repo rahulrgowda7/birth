@@ -202,9 +202,9 @@
     </div>
 
     <footer class="fade-in-section">
-        <!-- MODIFIED: autoplay attribute removed to prevent it from trying to play on load -->
         <audio id="birthday-song" loop>
-            <source src="R:\birth\audio\audio_Jeeva Kottavalu Ringtone Download - MobCup.Com.Co.mp3"type="audio/mpeg">
+            <!-- ✅ CORRECTED PATH: Removed the leading slash. Now it's a relative path. -->
+            <source src="./audio/audio_Jeeva%20Kottavalu%20Ringtone%20Download%20-%20MobCup.Com.Co.mp3" type="audio/mpeg">
             Your browser does not support the audio element.
         </audio>
         <p>Love you always and forever, Amma! ❤️</p>
@@ -228,19 +228,14 @@
             function animatePetals() { ctx.clearRect(0, 0, canvas.width, canvas.height); petals.forEach(p => p.animate()); requestAnimationFrame(animatePetals); }
             animatePetals();
 
-            // --- MODIFIED: Open Letter & Music Start Logic ---
+            // --- Open Letter & Music Start Logic ---
             const openLetterBtn = document.getElementById('open-letter-btn');
             const letterContent = document.getElementById('letter-content');
-            const audio = document.getElementById('birthday-song'); // Get the audio element
-
+            const audio = document.getElementById('birthday-song');
+            
             openLetterBtn.addEventListener('click', () => {
-                // Action 1: Reveal the letter content
                 letterContent.classList.add('revealed');
-                
-                // Action 2: Hide the button so it can't be clicked again
                 openLetterBtn.style.display = 'none';
-
-                // Action 3: Play the music!
                 audio.play(); 
             });
             
